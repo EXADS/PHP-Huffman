@@ -81,13 +81,13 @@ class Huffman
     public function decode($data)
     {
         if (!is_string($data)) {
-            throw new Exception('The data must be a string.');
+            throw new \Exception('The data must be a string.');
         }
         if (empty($data)) {
             return '';
         }
         if ($this->dictionary === null) {
-            throw new Exception('The dictionary has not been set.');
+            throw new \Exception('The dictionary has not been set.');
         }
         $binaryString = '';
         $dataLenght = strlen($data);
