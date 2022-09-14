@@ -18,10 +18,10 @@ class HuffmanDictionary
     public function get($entry)
     {
         if (!is_string($entry) || strlen($entry) != 1) {
-            throw new Exception('Entry must be a one character string.');
+            throw new \Exception('Entry must be a one character string.');
         }
         if (!array_key_exists($entry, $this->dictionary)) {
-            throw new Exception('Character "'.$entry.'" is not in the dictionary.');
+            throw new \Exception('Character "'.$entry.'" is not in the dictionary.');
         }
         return $this->dictionary[$entry];
     }
@@ -29,13 +29,13 @@ class HuffmanDictionary
     public function set($entry, $value)
     {
         if (!is_string($entry) || strlen($entry) != 1) {
-            throw new Exception('Entry must be a one character string.');
+            throw new \Exception('Entry must be a one character string.');
         }
         if (array_key_exists($entry, $this->dictionary)) {
-            throw new Exception('Character "'.$entry.'" is already in the dictionary.');
+            throw new \Exception('Character "'.$entry.'" is already in the dictionary.');
         }
         if (strlen(str_replace('0', '', str_replace('1', '', $value))) != 0) {
-            throw new Exception('Value of the entry is not correctly formatted.');
+            throw new \Exception('Value of the entry is not correctly formatted.');
         }
         $length = strlen($value);
         if ($this->minLength == -1 || $length < $this->minLength) {
